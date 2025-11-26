@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clement Torti | Links</title>
+    <!-- Google Fonts: Poppins (Clean & Rounded) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #ecf0f3;
+            --text-main: #444444;
+            --text-secondary: #777777;
+            
+            /* Neumorphic Shadows */
+            --shadow-light: #ffffff;
+            --shadow-dark: #d1d9e6;
+            
+            /* Brand Colors for Accents */
+            --color-portfolio: #6C5CE7;
+            --color-netflix: #E50914;
+            --color-academie: #0984e3;
+            --color-lang: #00b894;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: var(--text-main);
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            padding: 40px;
+            /* The Main Card Container */
+            border-radius: 40px;
+            background: var(--bg-color);
+            box-shadow: 13px 13px 20px var(--shadow-dark), 
+                       -13px -13px 20px var(--shadow-light);
+            animation: fadeIn 1s ease-out;
+        }
+
+        /* Profile Section */
+        .profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .img-container {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            padding: 8px; /* Gap between image and ring */
+            background: var(--bg-color);
+            box-shadow: 6px 6px 10px var(--shadow-dark), 
+                       -6px -6px 10px var(--shadow-light);
+            margin-bottom: 20px;
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            /* Inner shadow to make image look embedded */
+            box-shadow: inset 3px 3px 5px var(--shadow-dark),
+                        inset -3px -3px 5px var(--shadow-light);
+        }
+
+        .profile h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--text-main);
+        }
+
+        .profile p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        /* Links List */
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .neu-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            padding: 20px 25px;
+            border-radius: 50px; /* Pill shape */
+            background: var(--bg-color);
+            color: var(--text-main);
+            
+            /* The Pop-out Effect */
+            box-shadow: 6px 6px 10px -1px var(--shadow-dark), 
+                       -6px -6px 10px -1px var(--shadow-light);
+            
+            transition: all 0.2s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .neu-link:hover {
+            transform: translateY(-2px);
+        }
+
+        .neu-link:active {
+            transform: translateY(2px);
+            /* The Pressed Effect */
+            box-shadow: inset 4px 4px 6px -1px var(--shadow-dark), 
+                        inset -4px -4px 6px -1px var(--shadow-light);
+        }
+
+        /* Icon Styling */
+        .icon-box {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            
+            /* Subtle pressed state for icon container */
+            box-shadow: inset 3px 3px 5px var(--shadow-dark), 
+                        inset -3px -3px 5px var(--shadow-light);
+            transition: color 0.3s ease;
+        }
+
+        .link-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .link-text strong {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .link-text small {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 2px;
+        }
+
+        /* Hover Accents - Changing icon colors on hover */
+        .neu-link.portfolio:hover .icon-box { color: var(--color-portfolio); }
+        .neu-link.netflix:hover .icon-box { color: var(--color-netflix); }
+        .neu-link.academie:hover .icon-box { color: var(--color-academie); }
+        .neu-link.lang:hover .icon-box { color: var(--color-lang); }
+
+        /* Small indicator dot at the end */
+        .indicator {
+            margin-left: auto;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            opacity: 0.5;
+        }
+
+        /* Socials Row */
+        .socials {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .social-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            background: var(--bg-color);
+            box-shadow: 6px 6px 10px -1px var(--shadow-dark), 
+                       -6px -6px 10px -1px var(--shadow-light);
+            transition: all 0.2s ease;
+        }
+
+        .social-btn:hover {
+            color: var(--text-main);
+            transform: translateY(-2px);
+        }
+        
+        .social-btn:active {
+            box-shadow: inset 4px 4px 6px -1px var(--shadow-dark), 
+                        inset -4px -4px 6px -1px var(--shadow-light);
+            transform: translateY(0);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Profile -->
+        <div class="profile">
+            <div class="img-container">
+                <!-- Replace with your GitHub avatar or photo URL -->
+                <img src="picture.png">
+            </div>
+            <h1>Clement Torti</h1>
+            <p>Software Engineer | Fullstack / DevOps / Team Lead</p>
+        </div>
+
+        <!-- Links -->
+        <div class="links">
+            
+            <!-- Portfolio -->
+            <a href="https://clement-torti.github.io/portfolio/" class="neu-link portfolio">
+                <div class="icon-box">
+                    <i class="fa-solid fa-briefcase"></i>
+                </div>
+                <div class="link-text">
+                    <strong>My Portfolio</strong>
+                    <small>Resume & Projects</small>
+                </div>
+                <i class="fa-solid fa-chevron-right indicator"></i>
+            </a>
+
+            <!-- Netflix -->
+            <a href="https://clement-torti.github.io/tv/" class="neu-link netflix">
+                <div class="icon-box">
+                    <i class="fa-solid fa-play"></i>
+                </div>
+                <div class="link-text">
+                    <strong>Netflix TV</strong>
+                    <small>Extension to watch IPTV</small>
+                </div>
+                <i class="fa-solid fa-chevron-right indicator"></i>
+            </a>
+
+            <!-- Academie -->
+            <a href="https://clement-torti.github.io/academie/" class="neu-link academie">
+                <div class="icon-box">
+                    <i class="fa-solid fa-book-open"></i>
+                </div>
+                <div class="link-text">
+                    <strong>L'académie</strong>
+                    <small>Learn French</small>
+                </div>
+                <i class="fa-solid fa-chevron-right indicator"></i>
+            </a>
+
+            <!-- Language -->
+            <a href="https://clement-torti.github.io/language-practice/" class="neu-link lang">
+                <div class="icon-box">
+                    <i class="fa-solid fa-comments"></i>
+                </div>
+                <div class="link-text">
+                    <strong>Practice</strong>
+                    <small>Language Tools</small>
+                </div>
+                <i class="fa-solid fa-chevron-right indicator"></i>
+            </a>
+
+        </div>
+
+        <!-- Optional Social Icons Footer -->
+        <div class="socials">
+            <a href="https://github.com/clement-torti" target="_blank" class="social-btn">
+                <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/clément-torti" target="_blank" class="social-btn">
+                <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="mailto:clement.torti@hotmail.fr" class="social-btn">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>
